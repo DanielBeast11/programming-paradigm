@@ -5,7 +5,7 @@ from colorama import Fore, Style
 
 def main():
     n = 1
-
+    
     rectangle = Rectangle(n, n, "синего")
     print(Fore.BLUE + str(rectangle))
 
