@@ -6,23 +6,25 @@ class cm_timer_1:
         self.start_time = time.time()
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         self.end_time = time.time()
         self.elapsed_time = self.end_time - self.start_time
-        print(f'time: {self.elapsed_time:.1f}')
+        print(f'time: {self.elapsed_time}')
 
 
 
 @contextmanager
 def cm_timer_2():
     start_time = time.time()
-    yield
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f'time: {elapsed_time:.1f}')
+    try:
+        yield
+    finally:
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f'time: {elapsed_time}')
 
-with cm_timer_1():
-    time.sleep(5.5)
+# with cm_timer_1():
+#     time.sleep(5.5)
 
-with cm_timer_2():
-    time.sleep(5.5)
+# with cm_timer_2():
+#     time.sleep(5.5)

@@ -9,7 +9,10 @@ class Unique:
 
     def __next__(self):
         for item in self.items:
-            processed_item = item.lower() if self.ignore_case and isinstance(item, str) else item
+            if self.ignore_case and isinstance(item, str):
+                processed_item = item.lower()
+            else:
+                processed_item = item
             if processed_item not in self.seen:
                 self.seen.add(processed_item)
                 return item
