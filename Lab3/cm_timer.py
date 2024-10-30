@@ -11,8 +11,6 @@ class cm_timer_1:
         self.elapsed_time = self.end_time - self.start_time
         print(f'time: {self.elapsed_time}')
 
-
-
 @contextmanager
 def cm_timer_2():
     start_time = time.time()

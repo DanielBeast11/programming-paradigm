@@ -1,3 +1,5 @@
+from gen_random import gen_random
+
 class Unique:
     def __init__(self, items, **kwargs):
         self.ignore_case = kwargs.get('ignore_case', False)
@@ -17,3 +19,23 @@ class Unique:
                 self.seen.add(processed_item)
                 return item
         raise StopIteration
+print("1)")
+data = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+for item in Unique(data):
+    print(item)
+
+print("\n2)")
+data = gen_random(10, 1, 3)
+for item in Unique(data):
+    print(item)
+
+print("\n3)")
+data = ['a', 'A', 'b', "B", 'a', 'A', 'b', 'B']
+for item in Unique(data):
+    print(item)
+
+
+print("\n4)")
+data = ['a', 'A', 'b', "B", 'a', 'A', 'b', 'B']
+for item in Unique(data, ignore_case=True):
+    print(item)
