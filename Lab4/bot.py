@@ -47,7 +47,7 @@ def start(message):
     markup = create_main_keyboard()
     bot.send_message(
         message.chat.id,
-        text="Привет, {0.first_name}! Выбери какую-нибудь кнопку-команду".format(message.from_user),
+        text="Привет, {0.first_name}! Выберите какую-нибудь кнопку-команду".format(message.from_user),
         reply_markup=markup
     )
 
@@ -62,7 +62,7 @@ def func(message):
         btn2 = types.KeyboardButton("Что ты можешь?")
         back = types.KeyboardButton("Вернуться в главное меню")
         markup.add(btn1, btn2, back)
-        bot.send_message(message.chat.id, text="Задай мне вопрос", reply_markup=markup)
+        bot.send_message(message.chat.id, text="Задайте мне вопрос", reply_markup=markup)
     
     elif message.text == "Как тебя зовут?":
         bot.send_message(message.chat.id, "Меня зовут DannyBot")
@@ -71,7 +71,7 @@ def func(message):
         bot.send_message(message.chat.id, text="Поздороваться, ответить на вопросы, определить ваш знак зодиака")
 
     elif message.text == "Определить знак зодиака":
-        bot.send_message(message.chat.id, "Пожалуйста, введи свою дату рождения в формате дд.мм")
+        bot.send_message(message.chat.id, "Пожалуйста, введите свою дату рождения в формате дд.мм")
 
     elif message.text == "Вернуться в главное меню":
         markup = create_main_keyboard()
@@ -83,15 +83,15 @@ def func(message):
             if 1 <= day <= 31 and 1 <= month <= 12:
                 sign = get_zodiac_sign(day, month)
                 if sign:
-                    bot.reply_to(message, f"Твой знак зодиака: {sign}!")
+                    bot.reply_to(message, f"Ваш знак зодиака: {sign}!")
                 else:
-                    bot.reply_to(message, "Пожалуйста, введи реальную дату (дд.мм)")
+                    bot.reply_to(message, "Пожалуйста, введите реальную дату (дд.мм)")
             else:
-                bot.reply_to(message, "Пожалуйста, введи реальную дату (дд.мм)")
+                bot.reply_to(message, "Пожалуйста, введите реальную дату (дд.мм)")
         except ValueError:
-            bot.reply_to(message, "Пожалуйста, введи реальную дату (дд.мм)")
+            bot.reply_to(message, "Пожалуйста, введите реальную дату (дд.мм)")
     
     else:
-        bot.send_message(message.chat.id, text="Пожалуйста, введи реальную дату (дд.мм)")
+        bot.send_message(message.chat.id, text="Пожалуйста, введите реальную дату (дд.мм)")
 
 bot.polling(none_stop=True)
