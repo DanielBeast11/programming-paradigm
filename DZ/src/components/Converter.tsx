@@ -13,8 +13,8 @@ const Converter: React.FC = () => {
     try {
       const [katakana, syllables] = transform(input);
       setResult(`
-        Katakana: ${katakana.join("")}
-        Syllables: ${syllables.join("-")}
+        Катакана: ${katakana.join("")}
+        Слоги: ${syllables.join("-")}
       `);
     } catch (error) {
       setResult("Error occurred during transformation");
